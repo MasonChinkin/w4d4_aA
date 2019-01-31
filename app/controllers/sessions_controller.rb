@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class SessionsController < ApplicationController
   def new
     render :new
   end
@@ -10,8 +10,12 @@ class UsersController < ApplicationController
       redirect_to XXX
     else
       flash.now[:errors] = @user.errors.full_messages
-      render :new
+      redirect_to XXX
     end
+  end
+
+  def destroy
+    logout!(user)
   end
 
   private
