@@ -66,3 +66,4 @@ gem "table_print", "~> 1.5", :group => :development
 gem "annotate", "~> 2.7", :group => :development
 gem "better_errors", "~> 2.5", :group => :development
 gem "binding_of_caller", "~> 0.8.0", :group => :development
+gem "html_routes", :group => :development

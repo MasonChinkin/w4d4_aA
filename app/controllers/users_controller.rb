@@ -1,13 +1,18 @@
 class UsersController < ApplicationController
+  def index
+    @users = User.all
+    render :index
+  end
+
   def new
     render :new
   end
 
   def create
-    user = User.find_by_credentials(user_params)
-    if user
+    user = User.new(user_params)
+    if user.save
       login!(user)
-      redirect_to XXX
+      redirect_to user_url(user)
     else
       flash.now[:errors] = @user.errors.full_messages
       render :new
