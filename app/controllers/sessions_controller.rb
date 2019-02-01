@@ -8,12 +8,14 @@ class SessionsController < ApplicationController
       params[:user][:email],
       params[:user][:password]
     )
+
     if user
       login!(user)
       redirect_to user_url(user)
     else
-      flash.now[:errors] = @user.errors.full_messages
-      redirect_to user_url(user)
+      # flash.now[:errors] = @user.errors.full_messages
+      # redirect_to user_url(user)
+      render plain: "user not found"
     end
   end
 
